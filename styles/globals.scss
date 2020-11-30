@@ -1,0 +1,57 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito";
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  cursor: pointer;
+}
+h2 {
+  font-size: 2.7rem;
+}
+h3 {
+  font-size: 1.9rem;
+  font-weight: 400;
+}
+h4 {
+  font-size: 1.8rem;
+}
+
+p,
+a,
+li {
+  font-size: 1.2rem;
+}
+
+.horario {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  min-width: 100px;
+  max-width: 100px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  background-color: #0078ff;
+  cursor: pointer;
+}
+.horario.selected {
+  background-color: #002e62;
+}
+.horario.no-available {
+  background-color: #6b6b6b;
+}
