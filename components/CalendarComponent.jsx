@@ -32,6 +32,7 @@ class calendarComponent extends Component {
   }
   
   handleDateChange = (date) => {
+  
     console.log()
 
     if(date.getMonth() + 1 < today.month &&  date.getFullYear() === today.year){
@@ -45,7 +46,7 @@ class calendarComponent extends Component {
     }// Works well
 
     this.props.handleSelectedDate(date)
-    this.setState({statusDate: true, errorMessage: "", selectedDate: date})
+    this.setState({statusDate: true, errorMessage: "", selectedDate: date,renderedTimeTable: [],selectedTime: ""})
   };
 
   render() {
@@ -112,7 +113,7 @@ class calendarComponent extends Component {
                 }}
               />
           </MuiPickersUtilsProvider>
-          <button onClick={findTodayTurnos}>Buscar Horarios</button>
+          <button onClick={findTodayTurnos}>Ver disponibilidad</button>
               <style jsx>{`
                 .calendar-container{
                   display:flex;

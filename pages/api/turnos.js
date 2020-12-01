@@ -20,6 +20,6 @@ export default async (req, res) => {
     };
     const nuevoTurno = new Turno(turnoPre);
     const savedTurno = await nuevoTurno.save();
-    res.json({ data: savedTurno });
+    res.redirect("/success");
   }
 };

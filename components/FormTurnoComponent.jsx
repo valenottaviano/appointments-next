@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 import ButtonComponent from './ButtonComponent'
 import axios from 'axios'
 import  Link  from 'next/link'
+import {useRouter} from 'next/router'
 
 export default function FormTurnoComponent(props) {
   const [name ,setName] = useState('')
@@ -10,6 +11,8 @@ export default function FormTurnoComponent(props) {
   const [email ,setEmail] = useState('')
   const [service ,setService] = useState('')
   const [ready , setReady] = useState(false)
+  const router = useRouter()
+
 
   if(!name || !surname || !phone || !email || !service || !props.timeSelected || ready){
   }else{
@@ -20,7 +23,7 @@ export default function FormTurnoComponent(props) {
   const handleOnFormSubmit = async (e)=>{
     e.preventDefault()
     let dateQuery = props.dateSelected.toLocaleDateString().replace('/','').replace('/','')
-    const res = await axios.post (`/api/turnos`,
+    const res = await axios.post(`/api/turnos`,
     {name:name,
     surname:surname,
     phoneNumber: String(phone),
@@ -30,6 +33,8 @@ export default function FormTurnoComponent(props) {
     dateQuery: dateQuery,
     time: props.timeSelected
     })
+    router.push('/success')
+
   }
     return (
         <form  onSubmit={handleOnFormSubmit}>
@@ -59,7 +64,7 @@ export default function FormTurnoComponent(props) {
               Esmaltado Semipermanente
             </option>
           </select>
-          {ready ? <Link href="/success"><button type="submit" >Confirmar Turno</button></Link> : ""}
+          {ready ? <button type="submit" >Confirmar Turno</button> : ""}
           
           <style jsx>{`
               form {
